@@ -1,0 +1,21 @@
+name: End-to-end tests - CypressAutomation - upload HTML report to CI/CD
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with: 
+            command: npm run xMattersTest
+
+            #upload html report to ci/cd
+      - name: Cypress HTML report upload
+        uses: actions/upload-artifact@v4
+        with:
+            name: my-artifact-htmlReport
+            path: cypress\reports\html # or path/to/artifact
