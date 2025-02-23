@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-20T11:21:10.422Z",
+    "end": "2025-02-20T11:21:30.151Z",
+    "duration": 19729,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "69a5206a-9970-4870-b10d-548c68f95c5a",
+      "title": "",
+      "fullFile": "cypress\\integration\\xMatters\\xMatters-Users.js",
+      "file": "cypress\\integration\\xMatters\\xMatters-Users.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "88be4d42-4ef7-49bc-a700-c08211baa67a",
+          "title": "My first test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My first test case",
+              "fullTitle": "My first test suite My first test case",
+              "timedOut": null,
+              "duration": 407,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Users.js\\\\My first test suite -- My first test case (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Users.js\\\\My first test suite -- My first test case (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(\"https://flow-company.tst.xmatters.com/xmatters/signOn.do\");\n//Login Page Object\nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\n//Navigate Users menu > Users sub-menu\ncy.get('[data-testid=\"mainNav_item mainNav_item-USERS\"]').click();\ncy.get('[data-testid=\"subNavMenu_item subNavMenu_item-NAV_USERS\"]').click({\n  force: true\n}); // {force: true} beacuse otherwise error of parent overflow\ncy.intercept('GET', '/people');\ncy.get('[data-testid=\"CreateUser_OpenModal\"]').click();\n//Test Add Users modal\ncy.get('.DialogBox_module__title--e3024 > span').should('have.text', 'Add Users');\ncy.get('[name=\"user.firstName\"]').type(this.data.fname); //first name\ncy.get('[name=\"user.lastName\"]').type(this.data.lname); //last name\ncy.get('[name=\"user.roles\"]').type('fu'); // Roles\ncy.get('.Row_module__selectOptionRow--c11cc').contains('Full Access User').click({\n  force: true\n});\ncy.get('[name=\"user.site\"]').type('de');\ncy.get('.Row_module__optionValue--c11cc').contains('Default Site').click({\n  force: true\n}); //Site\ncy.get('[name=\"user.targetName\"]').type(this.data.userid); //username\ncy.get('[data-testid=\"Checkbox_user.useAsWebLoginId\"] > .Checkbox_module__svgWrap--59369').click(); //Checkbox\ncy.get('[name=\"user.webLogin\"]').type(this.data.userid); //weblogin\ncy.get('[data-testid=\"CreateUserModal_PasswordField_user_password\"]').type(this.data.userpwd); //password and confirm password\ncy.get('[name=\"confirmPassword\"]').type(this.data.userpwd);\ncy.get('[name=\"devices[Work Email].emailAddress\"]').type(this.data.workEmail); //Work Email\n//List property\ncy.get('input[name=\"user.properties._list%20property\"]').type('li');\ncy.get('.Row_module__selectOptionRow--c11cc').contains('list1').click({\n  force: true\n});\n//cy.get('[name=\"user.properties._list%20property\"]').should('have.value','list1')\n//Checkbox property\ncy.get('[data-testid=\"Checkbox_user.properties._checkbox\"] > .Checkbox_module__svgWrap--59369').click();\n//Multiselect property\ncy.get('input[name=\"user.properties._MULTISELECT\"]').type('1');\ncy.get('.Row_module__selectOptionRow--c11cc').each(function ($e1, index, $list) {\n  if ($e1.text() === '1') {\n    cy.wrap($e1).click(); //wrapping element to select\n  }\n});\n//Text property\ncy.get('input[name=\"user.properties._text1\"]').type(\"test\");\n//Number property\ncy.get('input[name=\"user.properties._number\"]').type(\"6\");\n//Password property\ncy.get('input[name=\"user.properties._pwd\"]').type('Complex@1');\ncy.get('button[type=submit]').click(); //Submit button\ncy.get('.UserListHeader-module__exitButton--PwrZC').click(); //Exit button on New Users listing page\ncy.get('.ChickenExit-module__title--Pj1zZ').should('have.text', \"Return to Users Page\"); //Chicken Exit text validation\ncy.get('.ChickenExit-module__content--XYeC2').should('have.text', \"You can send a welcome message or add users to a group at any time from the Users page.\"); //Return to Users Page chicken exit\ncy.get('[data-testid=\"button-confirm\"]').contains('OK').click();",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'email')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'email')\n    at Context.eval (cypress/integration/xMatters/xMatters-Users.js:22:51)\n    at runnable.fn (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:139094:19)\n    at callFn (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:157690:21)\n    at Runnable.run (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:157677:7)\n    at <unknown> (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:163607:30)\n    at PassThroughHandlerContext.finallyHandler (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "7963b637-56cc-46a7-866a-2a1b2aff583e",
+              "parentUUID": "88be4d42-4ef7-49bc-a700-c08211baa67a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "7963b637-56cc-46a7-866a-2a1b2aff583e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 407,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Mochawesome Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

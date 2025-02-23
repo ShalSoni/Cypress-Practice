@@ -1,0 +1,206 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 0,
+    "pending": 0,
+    "failures": 5,
+    "start": "2025-02-11T14:49:57.746Z",
+    "end": "2025-02-11T14:53:37.120Z",
+    "duration": 219374,
+    "testsRegistered": 5,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b665d5e8-93a2-44f5-a280-601022c36e4e",
+      "title": "",
+      "fullFile": "cypress\\integration\\xMatters\\xMatters-Incident Types-Edit.js",
+      "file": "cypress\\integration\\xMatters\\xMatters-Incident Types-Edit.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "215450c1-385a-43ff-904c-bbb71807aa0b",
+          "title": "Edit Incident Type test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test Case 1- Tabs, header UI & Empty State Validation for Incident Properties tab",
+              "fullTitle": "Edit Incident Type test suite Test Case 1- Tabs, header UI & Empty State Validation for Incident Properties tab",
+              "timedOut": null,
+              "duration": 18023,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 1- Tabs, header UI & Empty State Validation for Incident Properties tab (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 1- Tabs, header UI & Empty State Validation for Incident Properties tab (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "//Login and navigate to Incidents - Incident Types \ncy.visit(Cypress.env('xMattersURL'));\nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\nvar incidentsMenu = new _SideMenuIncidentsXMatters[\"default\"]();\nincidentsMenu.getIncidentMenu();\nincidentsMenu.getIncidentTypes();\n//Tabs validation    \ncy.contains(\"Automation Incident Type\").click();\ncy.get('.IncidentTypeDetails-module__tab--CMMTt').as('Tabs'); //Aliasing\ncy.get('@Tabs').eq(0).should('have.text', \"Incident Properties\"); //Incident Properties tab\ncy.get('@Tabs').eq(1).should('have.text', \"Incident Console Layout\"); //Incident Console Layout tab\n//Emtpy state validation for Incident Properties tab\ncy.get('.IncidentTypeDetails-module__emptyStateTitle--PNztf > span').should('have.text', \"You haven’t created any properties for this incident type yet\");\ncy.get('.IncidentTypeDetails-module__noProperties--FgUxK > :nth-child(3)').should('have.text', \"Predefine attributes common to all incidents with the same incident type\");\ncy.get('[data-testid=\"createPropertyLink\"]').should('have.text', \"Create Incident Property\").and('be.enabled');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.IncidentTypeDetails-module__tab--CMMTt`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.IncidentTypeDetails-module__tab--CMMTt`, but never found it.\n    at Context.eval (cypress/integration/xMatters/xMatters-Incident Types-Edit.js:32:11)",
+                "diff": null
+              },
+              "uuid": "cb30b1af-6239-42f1-a75e-53eb3f61df9c",
+              "parentUUID": "215450c1-385a-43ff-904c-bbb71807aa0b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 2 - Edit Incident Type - Unsaved Changes pop-up validation & UI elements",
+              "fullTitle": "Edit Incident Type test suite Test Case 2 - Edit Incident Type - Unsaved Changes pop-up validation & UI elements",
+              "timedOut": null,
+              "duration": 22885,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 2 - Edit Incident Type - Unsaved Changes pop-up validation & UI elements (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 2 - Edit Incident Type - Unsaved Changes pop-up validation & UI elements (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(Cypress.env('xMattersURL'));\n//Login Page \nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\n//Navigate Incidents menu > Incident Types sub-menu\nvar incidentsMenu = new _SideMenuIncidentsXMatters[\"default\"]();\nincidentsMenu.getIncidentMenu();\nincidentsMenu.getIncidentTypes();\n//Edit Incident Type\ncy.contains(\"Automation Incident Type\").click();\ncy.get('.EditableLabel_module__labelWrapper--8663f > :nth-child(2)').click();\n//Add Incident Properties \ncy.get('[data-testid=\"button-AddPropertyButton\"]').as('addPropertyButton');\ncy.get('@addPropertyButton').should('be.enabled').click();\ncy.get('[data-testid=\"AddIncidentProperty-default-value-field\"]').as('propertyDefaultValue');\ncy.get('input[id=\"description\"]').as('propertyDescription');\ncy.get('input[id=\"helpText\"]').as('propertyHelp');\ncy.get('label[for=\"validate\"]').as('regexText');\ncy.get('div[name=\"validate\"]').as('regexToggle');\ncy.get('.UpsertPropertySidePanel-module__header--M7HTR').should('have.text', \"Create Incident Property\");\ncy.get('[data-testid=\"AddIncidentProperty-name-field\"]').as('propertyName');\ncy.get('@propertyName').type(\"property 1\");\n//Unsaved Changes pop-up validation\ncy.get('[data-testid=\"AddIncidentTypePropertySidePanel-closeBtn\"]').as('sideDrawerClose');\ncy.get('[data-testid=\"AddIncidentTypePropertySidePanel-addBtn\"]').as('sideDrawerAdd');\ncy.get('@sideDrawerAdd').should('be.enabled');\ncy.get('@sideDrawerClose').should('be.enabled').click();\ncy.get('.ChickenExit-module__title--Pj1zZ').should('have.text', \"Unsaved Changes\");\ncy.get('.ChickenExit-module__content--XYeC2').should('have.text', \"Unsaved incident type property will be discarded. Are you sure you want to navigate away?\");\ncy.get('[data-testid=\"button-confirm\"]').click(); //Ok button    \ncy.get('@addPropertyButton').should('be.enabled').click();\ncy.get('@propertyName').type(\"property 1\");\ncy.get('@sideDrawerClose').should('be.enabled').click();\ncy.get('[data-testid=\"button-abort\"]').click(); //Cancel button\ncy.get('[data-testid=\"AddIncidentTypeProperty-sidePanel\"]').should('be.visible'); //Side drawer should remain open\ncy.get('.icon-info').trigger('mouseover').invoke('show');\ncy.contains('Add information about the property for users initiating an incident.'); //help text infotip",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.EditableLabel_module__labelWrapper--8663f > :nth-child(2)`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.EditableLabel_module__labelWrapper--8663f > :nth-child(2)`, but never found it.\n    at Context.eval (cypress/integration/xMatters/xMatters-Incident Types-Edit.js:62:11)",
+                "diff": null
+              },
+              "uuid": "4b847a3a-afe2-422a-bedc-4138e1494e66",
+              "parentUUID": "215450c1-385a-43ff-904c-bbb71807aa0b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 3 - Edit Incident Types - Add Incident Properties",
+              "fullTitle": "Edit Incident Type test suite Test Case 3 - Edit Incident Types - Add Incident Properties",
+              "timedOut": null,
+              "duration": 21703,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 3 - Edit Incident Types - Add Incident Properties (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 3 - Edit Incident Types - Add Incident Properties (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(Cypress.env('xMattersURL'));\n//Login Page \nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\n//Navigate Incidents menu > Incident Types sub-menu\nvar incidentsMenu = new _SideMenuIncidentsXMatters[\"default\"]();\nincidentsMenu.getIncidentMenu();\nincidentsMenu.getIncidentTypes();\n//Edit Incident Type\ncy.contains(\"Automation Incident Type\").click();\ncy.get('.EditableLabel_module__labelWrapper--8663f > :nth-child(2)').click();\n//Add Incident Properties \ncy.get('[data-testid=\"button-AddPropertyButton\"]').as('addPropertyButton');\ncy.get('@addPropertyButton').click();\n//Aliases\ncy.get('[data-testid=\"AddIncidentProperty-name-field\"]').as('propertyName');\ncy.get('[data-testid=\"AddIncidentProperty-default-value-field\"]').as('propertyDefaultValue');\ncy.get('input[id=\"description\"]').as('propertyDescription');\ncy.get('input[id=\"helpText\"]').as('propertyHelp');\ncy.get('label[for=\"validate\"]').as('regexText');\ncy.get('div[name=\"validate\"]').as('regexToggle');\ncy.get('[data-testid=\"AddIncidentTypePropertySidePanel-addBtn\"]').as('createButton');\ncy.get('.ToastList-module__toast-list--YaW7F').as('successToast');\n//1. Add property - no regex, only Name \ncy.get('@propertyName').type(\"property 1\");\ncy.get('@propertyDefaultValue').type('default value - no regex');\ncy.get('@propertyDescription').type('property has default value with no regex');\ncy.get('@createButton').click({\n  force: true\n});\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//Unique name validation\ncy.get('@propertyName').clear().type(\"property 1\");\ncy.get('[data-testid=\"FormInput_validation\"]').contains('This name is already in use. All properties within an incident type must have unique names.');\n//2. Add property - regex - Letters only\ncy.get('@propertyName').clear().type(\"property 2\");\n//Invalid default value validation - Letters only\ncy.get('@propertyDefaultValue').type('1234');\ncy.get('@regexToggle').click();\ncy.get('[data-testid=\"AddIncidentProperty-pchooserinput-searchSelect\"]').as('regexSelect');\ncy.get('@regexSelect').click();\ncy.get('[role=\"option\"]').as('regexPattern');\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'Letters only') {\n    cy.wrap($e1).click(); //wrapping element to select\n    cy.log('element found');\n  }\n});\ncy.get('.SearchSelect_module__valueOption--77c9e > span').as('regexSelected');\ncy.get('@regexSelected').contains('Letters only');\ncy.get('@createButton').click();\ncy.get('.Toast-module__toastContent--phWsS').as('errorToast');\ncy.get('@errorToast').contains('Default value 1234 must match the specified pattern [A-Z,a-z]*.');\ncy.get('[data-testid=\"icon-toast-close\"]').as('closeToast');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - Letters only\ncy.get('@propertyDefaultValue').clear().type('testprop');\ncy.get('@propertyDescription').type('property has default value with regex - Letters only');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//3. Add property - regex - Numbers only\ncy.get('@propertyName').clear().type(\"property 3\");\ncy.get('@propertyDescription').type('property has default value with regex - Numbers only');\n//Invalid default value validation\ncy.get('@propertyDefaultValue').type('a');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'Numbers only') {\n    cy.wrap($e1).click(); //wrapping element to select\n  }\n});\ncy.get('@regexSelected').contains('Numbers only');\ncy.get('@createButton').click();\ncy.get('@errorToast').should('contain', 'Default value a must match the specified pattern \\\\\\d*.');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - Numbers only\ncy.get('@propertyDefaultValue').clear().type('1234');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//4. Add property - regex - 5 Numbers only\ncy.get('@propertyName').clear().type(\"property 4\");\ncy.get('@propertyDescription').type('property has default value with regex - 5 Numbers only');\n//Invalid default value validation \ncy.get('@propertyDefaultValue').type('1234');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === '5 Numbers only') {\n    cy.wrap($e1).click(); //wrapping element to select\n  }\n});\ncy.get('@regexSelected').contains('5 Numbers only');\ncy.get('@createButton').click();\ncy.get('@errorToast').should('contain', 'Default value 1234 must match the specified pattern \\\\\\d{5}.');\ncy.get('@closeToast').click({\n  multiple: true\n});\ncy.get('@propertyDefaultValue').clear().type('123456');\ncy.get('@createButton').click();\ncy.get('@errorToast').contains('Default value 123456 must match the specified pattern \\\\\\d{5}.');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - 5 Numbers only\ncy.get('@propertyDefaultValue').clear().type('12345');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//5. Add property - regex - Basic Decimal Number\ncy.get('@propertyName').clear().type(\"property 5\");\ncy.get('@propertyDescription').type('property has default value with regex - Basic Decimal number');\n//Invalid default value validation - Basic Decimal number\ncy.get('@propertyDefaultValue').type('ab');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'Basic Decimal number') {\n    cy.wrap($e1).click();\n  }\n});\ncy.get('@regexSelected').contains('Basic Decimal number');\ncy.get('@createButton').click();\ncy.get('@errorToast').should('contain', 'Default value ab must match the specified pattern'); // [-\\\\+]?\\d+\\\\\\.?\\\\\\d.\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - Basic Decimal number\ncy.get('@propertyDefaultValue').clear().type('12');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//6. Add property - regex - Generic date time\ncy.get('@propertyName').clear().type(\"property 6\");\ncy.get('@propertyDescription').type('property has default value with regex - Generic date time');\n//Invalid default value validation \ncy.get('@propertyDefaultValue').type('12AM');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'Generic date time') {\n    cy.wrap($e1).click(); //wrapping element to select\n  }\n});\ncy.get('@regexSelected').contains('Generic date time');\ncy.get('@createButton').click();\ncy.get('@errorToast').should('contain', 'Default value 12AM must match the specified pattern \\\\\\d{1,4}/\\\\\\d{1,2}/\\\\\\d{1,4} \\\\\\d{1,2}:\\\\\\d{2}(:\\\\\\d{2}) (AM|PM)?.');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - Generic date time\ncy.get('@propertyDefaultValue').clear().type('15/07/2024 10:45:00 AM');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//7. Add property - regex - Basic IP Address\ncy.get('@propertyName').clear().type(\"property 7\");\ncy.get('@propertyDescription').type('property has default value with regex - Basic IP Address (no range checking)');\n//Invalid default value validation - Basic IP Address\ncy.get('@propertyDefaultValue').type('12');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'Basic IP Address (no range checking)') {\n    cy.wrap($e1).click(); //wrapping element to select\n  }\n});\ncy.get('@regexSelected').contains('Basic IP Address (no range checking)');\ncy.get('@createButton').click();\ncy.get('@errorToast').should('contain', 'Default value 12 must match the specified pattern \\\\\\d{1,3}\\\\\\.\\\\\\d{1,3}\\\\\\.\\\\\\d{1,3}\\\\\\.\\\\\\d{1,3}.');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - Basic IP Address\ncy.get('@propertyDefaultValue').clear().type('11.12.13.444');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//8. Add property - regex - ISO Date time\ncy.get('@propertyName').clear().type(\"property 8\");\ncy.get('@propertyDescription').type('property has default value with regex - ISO Date time');\n//Invalid default value validation - ISO Date time\ncy.get('@propertyDefaultValue').type('12');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'ISO Date time (ISO 8601) for example (2010-09-14T04:20:15Z)') {\n    cy.wrap($e1).click();\n  }\n});\ncy.get('@regexSelected').contains('ISO Date time (ISO 8601) for example (2010-09-14T04:20:15Z)');\ncy.get('@createButton').click();\ncy.get('@errorToast').should('contain', 'Default value 12 must match the specified pattern \\\\\\d{4}\\\\\\-\\\\\\d{2}\\\\\\-\\\\\\d{2}T\\\\\\d{2}:\\\\\\d{2}(:\\\\\\d{2})?(Z)?.');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - ISO Date time \ncy.get('@propertyDefaultValue').clear().type('2024-09-14T04:20:15Z');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//9. Add property - regex - Boolean \ncy.get('@propertyName').clear().type(\"property 9\");\ncy.get('@propertyDescription').type('property has default value with regex - Boolean');\n//Invalid default value validation - Boolean\ncy.get('@propertyDefaultValue').type('12');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'Boolean (case-insensitive)') {\n    cy.wrap($e1).click();\n  }\n});\ncy.get('@regexSelected').contains('Boolean (case-insensitive)');\ncy.get('@createButton').click();\ncy.get('@errorToast').contains('Default value 12 must match the specified pattern (?i:true|false|yes|no).');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - Boolean \ncy.get('@propertyDefaultValue').clear().type('true');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//10. Add property - regex - String 10 characters or shorter \ncy.get('@propertyName').clear().type(\"property 10\");\ncy.get('@propertyDescription').type('property has default value with regex - String 10 characters or shorter');\n//Invalid default value validation - String 10 characters or shorter \ncy.get('@propertyDefaultValue').type('12345678910');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'String 10 characters or shorter') {\n    cy.wrap($e1).click();\n  }\n});\ncy.get('@regexSelected').contains('String 10 characters or shorter');\ncy.get('@createButton').click();\ncy.get('@errorToast').contains('Default value 12345678910 must match the specified pattern .{0,10}.');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - String 10 characters or shorter \ncy.get('@propertyDefaultValue').clear().type('1234567890');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');\n//11. Add property - regex - Custom \ncy.get('@propertyName').clear().type(\"property 11\");\ncy.get('@propertyDescription').type('property has default value with regex - Custom');\ncy.get('@propertyHelp').type('2 numbers and letters');\n//Invalid default value validation - Custom\ncy.get('@propertyDefaultValue').type('123ab');\ncy.get('@regexToggle').click();\ncy.get('@regexSelect').click();\ncy.get('@regexPattern').each(function ($e1, index, $list) {\n  if ($e1.text() === 'Custom') {\n    cy.wrap($e1).click();\n  }\n});\ncy.get('@regexSelected').contains('Custom');\ncy.get('@createButton').click();\ncy.get('@errorToast').contains('Default value 123df must match the specified pattern .{0,2}[A-Z,a-z]*.');\ncy.get('@closeToast').click({\n  multiple: true\n});\n//Valid default value - Custom\ncy.get('@propertyDefaultValue').clear().type('12ab');\ncy.get('@createButton').click();\ncy.get('@successToast').should('be.visible').and('have.text', 'Incident type property added.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.EditableLabel_module__labelWrapper--8663f > :nth-child(2)`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.EditableLabel_module__labelWrapper--8663f > :nth-child(2)`, but never found it.\n    at Context.eval (cypress/integration/xMatters/xMatters-Incident Types-Edit.js:119:11)",
+                "diff": null
+              },
+              "uuid": "44fad0ef-5707-4b1b-95f8-8c351280af23",
+              "parentUUID": "215450c1-385a-43ff-904c-bbb71807aa0b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 4 - Edit Incident Type - Delete Incident Properties",
+              "fullTitle": "Edit Incident Type test suite Test Case 4 - Edit Incident Type - Delete Incident Properties",
+              "timedOut": null,
+              "duration": 23584,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 4 - Edit Incident Type - Delete Incident Properties (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 4 - Edit Incident Type - Delete Incident Properties (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(Cypress.env('xMattersURL'));\n//Login Page \nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\n//Navigate Incidents menu > Incident Types sub-menu\nvar incidentsMenu = new _SideMenuIncidentsXMatters[\"default\"]();\nincidentsMenu.getIncidentMenu();\nincidentsMenu.getIncidentTypes();\n//Delete Incident Type Property           \ncy.contains(\"Automation Incident Type\").click();\ncy.get('.ButtonStyledLikeLink_module__button--85c4a').each(function ($e1, index, $list) {\n  cy.wrap($e1).click();\n  cy.get('[data-testid=\"AddIncidentTypePropertySidePanel-delBtn\"]').click();\n  cy.get('.DialogBox_module__title--e3024 ChickenExit-module__title--Pj1zZ > span').should('have.text', 'Delete Property');\n  cy.get('\"DialogBox_module__content--e3024 ChickenExit-module__content--XYeC2 > span').should('have.text', 'This property will still be available in existing incidents and Post-Incident Reports. However, future incidents will not be able to use this property. Are you sure you want to proceed?');\n  cy.get('[data-testid=\"button-confirm\"]').click();\n  cy.get('.ToastList-module__toast-list--YaW7F').should('be.visible').and('have.text', 'Property deleted.');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.ButtonStyledLikeLink_module__button--85c4a`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 6000ms: Expected to find element: `.ButtonStyledLikeLink_module__button--85c4a`, but never found it.\n    at Context.eval (cypress/integration/xMatters/xMatters-Incident Types-Edit.js:439:13)",
+                "diff": null
+              },
+              "uuid": "35006583-4d45-4965-b3ab-fbc8ba6f70e0",
+              "parentUUID": "215450c1-385a-43ff-904c-bbb71807aa0b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 5 - Edit Incident Type - Delete Incident Type",
+              "fullTitle": "Edit Incident Type test suite Test Case 5 - Edit Incident Type - Delete Incident Type",
+              "timedOut": null,
+              "duration": 14853,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 5 - Edit Incident Type - Delete Incident Type (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Incident Types-Edit.js\\\\Edit Incident Type test suite -- Test Case 5 - Edit Incident Type - Delete Incident Type (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(Cypress.env('xMattersURL'));\n//Login Page \nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\n//Navigate Incidents menu > Incident Types sub-menu\nvar incidentsMenu = new _SideMenuIncidentsXMatters[\"default\"]();\nincidentsMenu.getIncidentMenu();\nincidentsMenu.getIncidentTypes();\n//Delete Incident Type Property           \ncy.get('[col-id=\"name\"]').each(function ($el, index, $list) {\n  if ($e1.text() === '00 PSD') {\n    cy.wrap($e1).click();\n    cy.get('[col-id=\"name\"]').eq(index).next().then(function (clickbox) {\n      cy.get('class=\"Checkbox_module__wrapper--59369\"').click();\n    });\n  }\n});",
+              "err": {
+                "message": "ReferenceError: $e1 is not defined",
+                "estack": "ReferenceError: $e1 is not defined\n    at Context.eval (cypress/integration/xMatters/xMatters-Incident Types-Edit.js:471:10)",
+                "diff": null
+              },
+              "uuid": "9e0575f5-0be3-4786-bb21-2508c07fea76",
+              "parentUUID": "215450c1-385a-43ff-904c-bbb71807aa0b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "cb30b1af-6239-42f1-a75e-53eb3f61df9c",
+            "4b847a3a-afe2-422a-bedc-4138e1494e66",
+            "44fad0ef-5707-4b1b-95f8-8c351280af23",
+            "35006583-4d45-4965-b3ab-fbc8ba6f70e0",
+            "9e0575f5-0be3-4786-bb21-2508c07fea76"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 101048,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Mochawesome Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

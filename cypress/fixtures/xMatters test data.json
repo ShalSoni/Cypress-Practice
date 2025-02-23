@@ -1,0 +1,23 @@
+{ 
+  "_comment": "Users test data",
+  "email": "admin", 
+  "password": "c1f@t[sVT}m1Xyp6pd(V",
+  "fname": "test",
+  "lname": "user", 
+  "userid": "taut1",
+  "userpwd": "Complex@1",
+  "workEmail": "tuser@optimusinfo.com",
+
+  "__comment": "Web Service Users test data",
+  "wsname": "wsaut",
+  "wspwd": "wsaut",
+  "deniedServ": ["Add Company Custom Fields", "Add Team"],
+
+  "___comment": "Incidents test data",
+  "incType": "Testaut1",
+  "incType1": "Testaut2"
+  
+
+
+
+}

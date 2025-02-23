@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-20T11:39:45.410Z",
+    "end": "2025-02-20T11:40:05.110Z",
+    "duration": 19700,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a3861af5-f7b1-4f49-a285-0b6d594ac963",
+      "title": "",
+      "fullFile": "cypress\\integration\\xMatters\\xMatters-Task Lists.js",
+      "file": "cypress\\integration\\xMatters\\xMatters-Task Lists.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ce2479f2-3127-4bfd-81bc-d019dd458da7",
+          "title": "Incident Type suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create Incident Type",
+              "fullTitle": "Incident Type suite Create Incident Type",
+              "timedOut": null,
+              "duration": 340,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Task Lists.js\\\\Incident Type suite -- Create Incident Type (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Task Lists.js\\\\Incident Type suite -- Create Incident Type (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(\"https://flow-company.tst.xmatters.com/xmatters/signOn.do\");\n//Login Page \nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\n//Navigate Incidents menu > Incident Types sub-menu\nvar incidentsMenu = new _SideMenuIncidentsXMatters[\"default\"]();\nincidentsMenu.getIncidentMenu();\nincidentsMenu.getTaskLists();\ncy.get('.Header-module__headerText--ggEt2 > span').should('have.text', 'Task Lists'); //Page title assertion        \ncy.get('.MiniInfoBox-module__title--PHhTk').should('have.text', 'Create and manage task lists');\ncy.get('.MiniInfoBox-module__description--se5YE').should('have.text', 'Create task lists, or playbooks, that resolvers can follow during incidents to streamline their response, adhere to best practices, and reduce mean time to resolution.');\ncy.get('.MiniInfoBox-module__dismissButtonIcon--QKK1b').click();\ncy.get('[data-testid=\"IncidentTaskLists-AddIncidentTaskList-button\"]').click();\n// Add task List modal\ncy.get('.DialogBox_module__title--e3024').should('have.text', 'Add Task List');\ncy.get('[data-testid=\"addTaskListDialog_name\"]').as('taskListName');\ncy.get('[data-testid=\"addTaskListDialog_description\"]').as('taskListDescription');\n//Max Name and Decription length validation\ncy.get('@taskListName').should('have.attr', 'maxlength', '101').type('https://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-lists');\ncy.get('.AddTaskListDialog-module__taskListName--bGy35 > :nth-child(3) > span').should('have.text', 'Cannot be greater than 100 characters.');\ncy.get('@taskListDescription').should('have.attr', 'maxlength', '2001').type('https://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.xmatters.com/xmatters/ui/incidents/incident-task-listshttps://flow-company.tst.x');\ncy.get('.AddTaskListDialog-module__taskListDescription--wG8FW > .AddTaskListDialog-module__errorBubble--G9sLT > span').should('Cannot be greater than 2000 characters.');\n//Create new task list\ncy.get('@taskListName').clear().type('Automation Task List 1');\ncy.get('[data-testid=\"AddTaskListDialog_save\"]').should('be.enabled').click();\ncy.get('.ToastList-module__toast-list--YaW7F').should('be.visible').and('have.text', \"Task List 'Automation Task List 1' added.\");\n//Update task list on creation\ncy.get('.TaskListTitleDescription-module__editText--gvA3Q > nth-child(1)').click();\ncy.get('[data-testid=\"incident-task-title\"]').type('Automation Task List 1 updated');\ncy.get('.TaskListTitleDescription-module__editText--gvA3Q > nth-child(2)').click();\ncy.get('[data-testid=\"incident-task-description\"]').type('Description added');\ncy.get('.TaskListTable-module__emptyStateDescription--WiMku').should('have.text', 'You don’t have any tasks in this list yet');\ncy.get('[data-testid=\"TaskListsTable-empty-addTask\"]').as('addTask');\ncy.get('.TaskSidePanel-module__title--KHeCW').should('have.text', 'Add Task');\n//Add Task with Due Date - None\ncy.get('[data-testid=\"incidentTask_name_input\"]').as('taskName');\ncy.get('@taskName').type('Task 1');\ncy.get('[data-testid=\"incidentTask_description_input\"]').as('taskDescription');\ncy.get('@taskDescription').type('Due date - None');\ncy.get('.Checkbox_module__label--59369').as('addAnotherTask');\ncy.get('@addAnotherTask');\ncy.get('[data-testid=\"incidentTask_dueDate_dropdown\"]').as('dueDateDropdown');\ncy.get('@dueDateDropdown').click();\ncy.get('.Dropdown_module__list--d274b').as('dueDateDropdownOptions');\ncy.get('[role=\"menuitem\"]').each(function ($e1, index, $list) {\n  if ($e1.text() === 'India') {\n    cy.wrap($e1).click(); //wrapping element to select\n  }\n});\n//Validate unsaved changes pop-up\n//Ok Button\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-closeBtn\"] > span').click();\ncy.get('.ChickenExit-module__title--Pj1zZ').should('have.text', \"Unsaved Changes\");\ncy.get('.ChickenExit-module__content--XYeC2').should('have.text', \"Unsaved incident type will be discarded. Are you sure you want to navigate away?\");\ncy.get('[data-testid=\"button-confirm\"]').click();\n//Close button\ncy.get('[data-testid=\"IncidentTypes-AddIncidentType-button\"]').click();\ncy.get('input[id=\"name\"]').type(this.data.incType);\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-closeBtn\"] > span').click();\ncy.get('[data-testid=\"button-abort\"]').click();\ncy.get('.SidePanel-module__content--bUMY5').should('be.visible');\n//Create Incident Type\ncy.get('[data-testid=\"IncidentConsoleWidgetCheckboxes-affected_sites-field\"] > .Checkbox_module__svgWrap--59369').then(function ($el) {\n  cy.wrap($el).click();\n});\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-addBtn\"]').should('be.enabled').click();\ncy.get('.Toast-module__toastLabel--UkY69').should('be.visible').contains('Incident type added.');\n//Unique incident type name validation - validation message, Create button disabled\ncy.get('[data-testid=\"IncidentTypes-AddIncidentType-button\"]').click(); //Add Incident Type button        \ncy.get('input[id=\"name\"]').type(this.data.incType);\n//Check for unique name validation message\ncy.get('[id=\"name_validation\"]').should('have.text', \"This name is already in use. All incident types must have unique names.\");\n//Create button should be disabled\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-addBtn\"]').should('be.disabled');\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-closeBtn\"]').click();",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'email')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'email')\n    at Context.eval (cypress/integration/xMatters/xMatters-Task Lists.js:23:51)\n    at runnable.fn (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:139094:19)\n    at callFn (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:157690:21)\n    at Runnable.run (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:157677:7)\n    at <unknown> (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:163607:30)\n    at PassThroughHandlerContext.finallyHandler (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "a3feff8a-695d-4d0d-8c39-900acd9d8956",
+              "parentUUID": "ce2479f2-3127-4bfd-81bc-d019dd458da7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a3feff8a-695d-4d0d-8c39-900acd9d8956"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 340,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Mochawesome Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

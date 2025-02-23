@@ -1,0 +1,95 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-08-05T06:20:36.600Z",
+    "end": "2024-08-05T06:20:37.533Z",
+    "duration": 933,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3f7c4594-36bf-4324-b1c1-fe081176661b",
+      "title": "",
+      "fullFile": "cypress\\integration\\example\\BDD\\ecommerce.feature",
+      "file": "cypress\\integration\\example\\BDD\\ecommerce.feature",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "An uncaught error was detected outside of a test",
+          "fullTitle": "An uncaught error was detected outside of a test",
+          "timedOut": null,
+          "duration": 503,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\ecommerce.feature\\\\An uncaught error was detected outside of a test (failed).png\"\n    ],\n    [\n      \"\\\\ecommerce.feature\\\\An uncaught error was detected outside of a test (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+          "code": "throw err;",
+          "err": {
+            "message": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > And is not defined\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.",
+            "estack": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > And is not defined\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.\n    at 3.../../../pageObjects/HomePage (cypress/integration/example/BDD/ecommerce/eCommStepDef.js:32:0)\n    at o (node_modules/browser-pack/_prelude.js:1:0)\n    at eval (node_modules/browser-pack/_prelude.js:1:0)\n    at 1.C:\\Users\\Shali\\CypressAutomation\\cypress\\integration\\example\\BDD\\ecommerce\\beforeEach.js (cypress/integration/example/BDD/ecommerce.feature:4:0)\n    at o (node_modules/browser-pack/_prelude.js:1:0)\n    at r (node_modules/browser-pack/_prelude.js:1:0)\n    at eval (node_modules/browser-pack/_prelude.js:1:0)\n    at eval (<anonymous>)",
+            "diff": null
+          },
+          "uuid": "5da592c6-d12d-49ca-bb4a-4e1007fc8a85",
+          "parentUUID": "3f7c4594-36bf-4324-b1c1-fe081176661b",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "5da592c6-d12d-49ca-bb4a-4e1007fc8a85"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 503,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Mochawesome Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "headTest": "npx cypess run --headed",
+    "chromeTest": "cypress run --browser chrome",
+    "xMattersTest": "npx cypress run --spec \"cypress/integration/xMatters/*\""
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cucumber-html-reporter": "^6.0.0",
+    "cypress": "^14.0.3",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-sql-server": "^1.0.0",
+    "multiple-cucumber-html-reporter": "^3.7.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.1",
+    "@cypress/browserify-preprocessor": "latest",
+    "convert-excel-to-json": "^1.7.0",
+    "cypress-real-events": "^1.13.0",
+    "global": "^4.4.0",
+    "neat-csv": "^7.0.0",
+    "yarn": "^1.22.22"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-07T07:06:43.547Z",
+    "end": "2024-08-07T07:06:49.992Z",
+    "duration": 6445,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "86b3730d-a2f6-4b51-987e-068b2851f1db",
+      "title": "",
+      "fullFile": "cypress\\integration\\example\\test10-Frameworks.js",
+      "file": "cypress\\integration\\example\\test10-Frameworks.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c4881dcb-612e-40ae-99cd-c102c2c892aa",
+          "title": "My tenth test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My tenth test case",
+              "fullTitle": "My tenth test suite My tenth test case",
+              "timedOut": null,
+              "duration": 1325,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rahulshettyacademy.com/angularpractice/');\ncy.get('input[name=\"name\"]:nth-child(2)').type(this.data.name);\ncy.get('select').select(this.data.gender);",
+              "err": {},
+              "uuid": "6fa5ef75-e22c-4a9a-a26a-fd99e3739179",
+              "parentUUID": "c4881dcb-612e-40ae-99cd-c102c2c892aa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6fa5ef75-e22c-4a9a-a26a-fd99e3739179"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1325,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Mochawesome Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

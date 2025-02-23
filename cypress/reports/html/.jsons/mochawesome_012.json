@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-20T11:18:07.006Z",
+    "end": "2025-02-20T11:18:30.893Z",
+    "duration": 23887,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b92e029c-4acd-44ac-81d9-8fddec7693a7",
+      "title": "",
+      "fullFile": "cypress\\integration\\xMatters\\xMatters-Incident Types-Create.js",
+      "file": "cypress\\integration\\xMatters\\xMatters-Incident Types-Create.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "18c4bee3-aefd-41aa-bf8d-c5101b3cfdea",
+          "title": "Incident Type suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create Incident Type",
+              "fullTitle": "Incident Type suite Create Incident Type",
+              "timedOut": null,
+              "duration": 267,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\xMatters-Incident Types-Create.js\\\\Incident Type suite -- Create Incident Type (failed).png\"\n    ],\n    [\n      \"\\\\xMatters-Incident Types-Create.js\\\\Incident Type suite -- Create Incident Type (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "cy.visit(\"https://flow-company.tst.xmatters.com/xmatters/signOn.do\");\n//Login Page \nvar loginPage = new _LoginPageXMatters[\"default\"]();\nloginPage.getEmailEditBox().type(this.data.email);\nloginPage.getPasswordEditBox().type(this.data.password);\nloginPage.getLoginButton();\n//Navigate Incidents menu > Incident Types sub-menu\nvar incidentsMenu = new _SideMenuIncidentsXMatters[\"default\"]();\nincidentsMenu.getIncidentMenu();\nincidentsMenu.getIncidentTypes();\ncy.get('.Header-module__headerText--T3S8m > span').should('have.text', 'Incident Types'); //Page title assertion\ncy.get('[data-testid=\"IncidentTypes-AddIncidentType-button\"]').click(); //Add Incident Type button        \ncy.get('.AddIncidentTypeSidePanel-module__title--yMqFb').should('have.text', \"Create Incident Type\"); //side drawer title assertion\ncy.get('input[id=\"name\"]').type(this.data.incType);\n//Validate unsaved changes pop-up\n//Ok Button\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-closeBtn\"] > span').click();\ncy.get('.ChickenExit-module__title--Pj1zZ').should('have.text', \"Unsaved Changes\");\ncy.get('.ChickenExit-module__content--XYeC2').should('have.text', \"Unsaved incident type will be discarded. Are you sure you want to navigate away?\");\ncy.get('[data-testid=\"button-confirm\"]').click();\n//Close button\ncy.get('[data-testid=\"IncidentTypes-AddIncidentType-button\"]').click();\ncy.get('input[id=\"name\"]').type(this.data.incType);\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-closeBtn\"] > span').click();\ncy.get('[data-testid=\"button-abort\"]').click();\ncy.get('.SidePanel-module__content--bUMY5').should('be.visible');\n//Create Incident Type\ncy.get('[data-testid=\"IncidentConsoleWidgetCheckboxes-affected_sites-field\"] > .Checkbox_module__svgWrap--59369').then(function ($el) {\n  cy.wrap($el).click();\n});\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-addBtn\"]').should('be.enabled').click();\ncy.get('.Toast-module__toastLabel--UkY69').should('be.visible').contains('Incident type added.');\n//Unique incident type name validation - validation message, Create button disabled\ncy.get('[data-testid=\"IncidentTypes-AddIncidentType-button\"]').click(); //Add Incident Type button        \ncy.get('input[id=\"name\"]').type(this.data.incType);\n//Check for unique name validation message\ncy.get('[id=\"name_validation\"]').should('have.text', \"This name is already in use. All incident types must have unique names.\");\n//Create button should be disabled\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-addBtn\"]').should('be.disabled');\ncy.get('[data-testid=\"AddIncidentTypeSidePanel-closeBtn\"]').click();",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'email')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'email')\n    at Context.eval (cypress/integration/xMatters/xMatters-Incident Types-Create.js:23:51)\n    at runnable.fn (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:139094:19)\n    at callFn (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:157690:21)\n    at Runnable.run (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:157677:7)\n    at <unknown> (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:163607:30)\n    at PassThroughHandlerContext.finallyHandler (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://flow-company.tst.xmatters.com/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "6b62a9c8-a66a-4412-aac4-ebe10e44eb57",
+              "parentUUID": "18c4bee3-aefd-41aa-bf8d-c5101b3cfdea",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6b62a9c8-a66a-4412-aac4-ebe10e44eb57"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 267,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Mochawesome Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

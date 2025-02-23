@@ -1,0 +1,114 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-08-07T06:57:55.440Z",
+    "end": "2024-08-07T06:57:56.975Z",
+    "duration": 1535,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9100de94-16d4-4416-b5bf-6840f2902a9d",
+      "title": "",
+      "fullFile": "cypress\\integration\\example\\test16-APITest.js",
+      "file": "cypress\\integration\\example\\test16-APITest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "66c325fa-b7b0-4c33-993b-0726f9957918",
+          "title": "JWT Session",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Access with token",
+              "fullTitle": "JWT Session Access with token",
+              "timedOut": null,
+              "duration": 587,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\test16-APITest.js\\\\JWT Session -- Access with token (failed).png\"\n    ],\n    [\n      \"\\\\test16-APITest.js\\\\JWT Session -- Access with token (failed) (attempt 2).png\"\n    ]\n  ]\n}",
+              "code": "//do validations on API response as per request without UI element check\n//cy.request(url)\n//cy.request(url, body)\n//cy.request(method, url)\n//cy.request(method, url, body)\n//cy.request(options)\ncy.request('http://216.10.245.166/Library/AddBook.php', {\n  //body\n  \"name\": \"Learn Appium Automation with Java\",\n  \"isbn\": \"bcdsss\",\n  \"aisle\": \"22s7\",\n  \"author\": \"John foe\"\n}).then(function (response)\n//resolve promise and capture response\n{\n  //validations code as per requirement\n  expect(response.body).to.have.property('Msg', \"successfully added\");\n  expect(response.isOkStatusCode);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttp://216.10.245.166/Library/AddBook.php\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://216.10.245.166/Library/AddBook.php\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 95\n}\nBody: {\"name\":\"Learn Appium Automation with Java\",\"isbn\":\"bcdsss\",\"aisle\":\"22s7\",\"author\":\"John foe\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"date\": \"Wed, 07 Aug 2024 06:57:55 GMT\",\n  \"server\": \"Apache\",\n  \"accept-ranges\": \"bytes\",\n  \"cache-control\": \"no-cache, no-store, must-revalidate\",\n  \"pragma\": \"no-cache\",\n  \"expires\": \"0\",\n  \"keep-alive\": \"timeout=5, max=99\",\n  \"connection\": \"Keep-Alive\",\n  \"transfer-encoding\": \"chunked\",\n  \"content-type\": \"text/html\"\n}\nBody: \n\n<!DOCTYPE html>\n<html>\n    <head>\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\n    <meta http-equiv=\"Cache-control\" content=\"no-cache\">\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">\n    <meta http-equiv=\"Expires\" content=\"0\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>404 Not Found</title>\n    <style type=\"text/css\">\n        body {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 14px;\n  line-height: 1.428571429;\n  background-color: #ffffff;\n  color: #2F3230;\n  padding: 0;\n  margin: 0;\n        }\n        section, footer {\n  display: block;\n  padding: 0;\n  margin: 0;\n        }\n        .container {\n  margin-left: auto;\n  margin-right: auto;\n  padding: 0 10px;\n        }\n        .response-info {\n  color: #CCCCCC;\n        }\n        .status-code {\n  font-size: 500%;\n        }\n        .status-reason {\n  font-size: 250%;\n  display: block;\n        }\n        .contact-info,\n        .reason-text {\n  color: #000000;\n        }\n        .additional-info {\n  background-repeat: no-repeat;\n  background-color: #293A4A;\n  color: #FFFFFF;\n        }\n        .additional-info a {\n  color: #FFFFFF;\n        }\n        .additional-info-items {\n  padding: 20px 0;\n  min-height: 193px;\n        }\n        .contact-info {\n  margin-bottom: 20px;\n  font-size: 16px;\n        }\n        .contact-info a {\n  text-decoration: underline;\n  color: #428BCA;\n        }\n        .contact-info a:hover,\n        .contact-info a:focus,\n        .contact-info a:active {\n  color: #2A6496;\n        }\n        .reason-text {\n  margin: 20px 0;\n  font-size: 16px;\n        }\n        ul {\n  display: inline-block;\n  list-s...\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttp://216.10.245.166/Library/AddBook.php\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://216.10.245.166/Library/AddBook.php\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 95\n}\nBody: {\"name\":\"Learn Appium Automation with Java\",\"isbn\":\"bcdsss\",\"aisle\":\"22s7\",\"author\":\"John foe\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"date\": \"Wed, 07 Aug 2024 06:57:55 GMT\",\n  \"server\": \"Apache\",\n  \"accept-ranges\": \"bytes\",\n  \"cache-control\": \"no-cache, no-store, must-revalidate\",\n  \"pragma\": \"no-cache\",\n  \"expires\": \"0\",\n  \"keep-alive\": \"timeout=5, max=99\",\n  \"connection\": \"Keep-Alive\",\n  \"transfer-encoding\": \"chunked\",\n  \"content-type\": \"text/html\"\n}\nBody: \n\n<!DOCTYPE html>\n<html>\n    <head>\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\n    <meta http-equiv=\"Cache-control\" content=\"no-cache\">\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">\n    <meta http-equiv=\"Expires\" content=\"0\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>404 Not Found</title>\n    <style type=\"text/css\">\n        body {\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 14px;\n  line-height: 1.428571429;\n  background-color: #ffffff;\n  color: #2F3230;\n  padding: 0;\n  margin: 0;\n        }\n        section, footer {\n  display: block;\n  padding: 0;\n  margin: 0;\n        }\n        .container {\n  margin-left: auto;\n  margin-right: auto;\n  padding: 0 10px;\n        }\n        .response-info {\n  color: #CCCCCC;\n        }\n        .status-code {\n  font-size: 500%;\n        }\n        .status-reason {\n  font-size: 250%;\n  display: block;\n        }\n        .contact-info,\n        .reason-text {\n  color: #000000;\n        }\n        .additional-info {\n  background-repeat: no-repeat;\n  background-color: #293A4A;\n  color: #FFFFFF;\n        }\n        .additional-info a {\n  color: #FFFFFF;\n        }\n        .additional-info-items {\n  padding: 20px 0;\n  min-height: 193px;\n        }\n        .contact-info {\n  margin-bottom: 20px;\n  font-size: 16px;\n        }\n        .contact-info a {\n  text-decoration: underline;\n  color: #428BCA;\n        }\n        .contact-info a:hover,\n        .contact-info a:focus,\n        .contact-info a:active {\n  color: #2A6496;\n        }\n        .reason-text {\n  margin: 20px 0;\n  font-size: 16px;\n        }\n        ul {\n  display: inline-block;\n  list-s...\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:62548/__cypress/runner/cypress_runner.js:133185:72)\n    at tryCatcher (http://localhost:62548/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:62548/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:62548/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:62548/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:62548/__cypress/runner/cypress_runner.js:1701:18)\n    at _drainQueueStep (http://localhost:62548/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:62548/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:62548/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:62548/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (cypress/integration/example/test16-APITest.js:11:11)",
+                "diff": null
+              },
+              "uuid": "58d71019-8c22-4332-938c-15a7320d9eac",
+              "parentUUID": "66c325fa-b7b0-4c33-993b-0726f9957918",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "58d71019-8c22-4332-938c-15a7320d9eac"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 587,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Mochawesome Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
