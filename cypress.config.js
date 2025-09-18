@@ -66,15 +66,21 @@ module.exports = defineConfig({
   },
 
   retries: {
-    runMode: 1, // for failed test rerun for 1 time
-    //openMode: 0
+    experimentalStrategy: 'detect-flake-and-pass-on-threshold',
+    experimentalOptions: {
+      maxRetries: 2,
+      passesRequired: 2 
+    },
+    runMode: true, // for failed test rerun for 1 time
+    openMode: true
   },
 
 
   e2e: {
       setupNodeEvents,     //load plugin
-      specPattern: 'cypress/integration/xMatters/*.js' //Run feature files for Cucumber BDD 
-      //specPattern: 'cypress/integration/xMatters/*.js' //scan any file which has .js extension for Mocha framework
+      experimentalStudio: true,
+      
+      specPattern: 'cypress/integration/example/*.js' //scan any file which has .js extension for Mocha framework
 
 
 

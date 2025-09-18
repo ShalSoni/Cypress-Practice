@@ -8,7 +8,14 @@ describe('My fifth test suite',function(){
 
         cy.get('#opentab').invoke('removeAttr','target').click()   //remove attribute 'target' with jquery function removeattr
 
-        //Validatins od child page opened in same tab
+
+        /* Approch 2 is to updated target attribute value to _self from _blank to open it in same tab
+        
+        cy.contains('Course Link').invoke('attr','target','_self').click()
+
+        */
+
+        //Validations of child page opened in same tab
         cy.origin('https://www.qaclickacademy.com', () => { //Cypress throws error when running tests in cross-domain when child tab is opened in same tab as parent domain
 
             cy.get("#navbarSupportedContent a[href*='about']").click();
@@ -29,7 +36,25 @@ describe('My fifth test suite',function(){
               cy.get("div.sub-menu-bar a[href*='about']").click()   //all functions on new domain should be within origin command
            })
         
+          /* .first()
+          .find('h2 a')
+          .invoke('removeAttr','_blank').
+          .click()
+
+          cy.url().should()*/
+
+
+//
+
+       /* .find('h2 a')
+        .then(($link) => {
+        const productURL = $link.prop('href')
+    
+        cy.origin(new URL(productURL).origin, ()=> {
+        cy.visit(productURL)
+        })
+        }
            
         })
-    }   
-)})
+    }   */
+})})})

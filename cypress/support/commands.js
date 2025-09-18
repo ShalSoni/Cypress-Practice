@@ -40,7 +40,7 @@ Cypress.Commands.add('LoginAPI',()=>
     })
 
 //xMatters Login Page 
-cypress.Commands.add('Login xMatters', (email,pwd) =>
+Cypress.Commands.add('Login xMatters', (email,pwd) =>
 {
     cy.visit(xMattersURL)
     cy.get('[data-testid="login-form-username"]').type(email)

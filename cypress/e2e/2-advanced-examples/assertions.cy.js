@@ -172,5 +172,28 @@ context('Assertions', () => {
           expect(n).to.be.gte(1).and.be.lte(10)
         })
     })
+
+    it('traverse through table with pagination', () => {
+
+      function traversePages () {
+
+        cy.get('tbody tr').each(($row) => {
+          cy.wrap($row).find('td').eq(1).then(($cell) => { //second column element
+            cy.log($cell.text())
+
+          })
+
+        })
+      }
+
+      cy.get('.pagination .next').then(($btn) => {
+        if (!$btn.is(':disabled')) {
+          cy.wrap($btn).click();
+          cy.wait(500)
+          traversePages(); recursive call
+        }
+      })
+    })
+
   })
 })

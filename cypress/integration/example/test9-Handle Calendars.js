@@ -35,7 +35,7 @@ describe('My ninth test suite',function(){
             ) 
             })  
 
-        //Methos 2
+        //Method 2
         cy.get('.react-date-picker__inputGroup__input').each(($e1,index)=>
                 {   //maintain expected list and compare actual value through automation
                     cy.wrap($e1).invoke('val').should('eq',expectedList[index]);

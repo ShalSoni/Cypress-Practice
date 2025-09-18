@@ -1,4 +1,4 @@
-name: End-to-end tests - CypressAutomation
+name: End-to-end tests - CypressAutomation - specific script run
 on: push
 jobs:
   cypress-run:

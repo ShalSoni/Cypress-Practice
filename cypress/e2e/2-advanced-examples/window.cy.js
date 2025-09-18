@@ -20,3 +20,13 @@ context('Window', () => {
     cy.title().should('include', 'Kitchen Sink')
   })
 })
+
+
+//Retrive all cookied and print name value
+var allcookies = document.cookie;
+var arrCookies = allcookies.split(';');
+for (let i=0; i<arrCookies.length; i++){
+  name = arrCookies[i].split('=')[0];
+  value = arrCookies[i].split('=')[1];
+  console.log('Cookie name :'+ name + 'and value =' + value)
+}

@@ -1,0 +1,37 @@
+/// <reference types="cypress" />
+
+describe('Code2', () => {
+
+    it('Second smallest in array', () => {
+        function secondSmallest(arr) {
+            const sorted = [...new Set(arr)].sort((a, b) => a - b); // Remove duplicates & sort ascending
+            return sorted.length >= 2 ? sorted[1] : null; // Return second smallest or null
+          }
+          
+          // Test case
+          const numbers = [4, 2, 7, 1, 5, 2];
+          console.log(secondSmallest(numbers)); // Output: 2
+
+          //OR
+          function secondSmallest1(arr1) {
+            let min = Infinity, secondMin = Infinity;
+            for (let num of arr1) {
+              if (num < min) {
+                secondMin = min;
+                min = num;
+              } else if (num < secondMin && num !== min) {
+                secondMin = num;
+              }
+            }
+            return secondMin !== Infinity ? secondMin : null;
+          }
+          
+          // Test case
+          const number = [4, 2, 7, 1, 5, 1];
+          console.log(secondSmallest1(number)); // Output: 2
+
+
+
+      })
+    
+    })
